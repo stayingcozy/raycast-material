@@ -117,6 +117,10 @@ renderer.domElement.addEventListener('dblclick', (e) => {
 
     console.log(`Mapped pixel coordinates: (${x}, ${y})`);
 
+    const pixel = ctx.getImageData(x, y, 1, 1).data; // Get pixel color
+    if (!pixel) return;
+    console.log("Pixels: ", pixel)
+
     // Draw a white "X" centered on (x, y)
     const size = 10; // Size of "X"
     ctx.strokeStyle = "red";
